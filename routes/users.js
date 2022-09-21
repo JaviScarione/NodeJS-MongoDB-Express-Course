@@ -14,9 +14,9 @@ router.use(bodyParser.json());
 router.get("/", authenticate.verifyUser, authenticate.verifyAdmin, function (req, res, next) {
     User.find({})
       .then((users) => {
-          res.statusCode = 200;
-          res.setHeader("Content-Type", "application/json");
-          res.json(users);
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/json");
+        res.json(users);
         })
       .catch((err) => {
         res.statusCode = 500;
