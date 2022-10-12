@@ -91,11 +91,11 @@ favoriteRouter.route('/')
 
 favoriteRouter.route('/:dishId')
 .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
-.get(cors.corsWithOptions, authenticate.verifyUser, (req,res,next) => {
+.get(cors.cors, authenticate.verifyUser, (req,res,next) => {
     Favorites.findOne({user: req.user._id})
     .then((favorites) => {
         if (!favorites) {
-            res.statusCode =200;
+            res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             return res.json({"exists": false, "favorites": favorites});
         }
