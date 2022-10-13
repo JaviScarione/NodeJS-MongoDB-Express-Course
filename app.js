@@ -26,8 +26,10 @@ const Dishes = require('./models/dishes');
 const Promotions = require('./models/promotions');
 const Leaders = require('./models/leaders');
 
+
 const url = config.mongoUrl;
 const connect = mongoose.connect(url);
+
 
 connect.then((db) => {
   console.log('Connected correctly to server');
