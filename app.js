@@ -25,6 +25,7 @@ const mongoose = require('mongoose');
 const Dishes = require('./models/dishes');
 const Promotions = require('./models/promotions');
 const Leaders = require('./models/leaders');
+const cors = require('cors');
 
 
 const url = config.mongoUrl;
@@ -55,6 +56,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 //app.use(cookieParser('12345-67890-09876-54321'));
 
 app.use(passport.initialize());
